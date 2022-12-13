@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>Edit Student</h1>
+<div mat-dialog-content>
+    <form [formGroup]= "studentForm">
+        <mat-form-field appearance="outline">
+            <mat-label>Id</mat-label>
+            <input formControlName="Id" matInput placeholder="Placeholder">
+          </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input formControlName="Name" matInput placeholder="Placeholder">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Age</mat-label>
+            <input formControlName="Age" matInput placeholder="Placeholder">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Address</mat-label>
+            <input formControlName="Address" matInput placeholder="Placeholder">
+          </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Cancle</button>
+    <button mat-raised-button color="primary">Save</button>
+
+</div>

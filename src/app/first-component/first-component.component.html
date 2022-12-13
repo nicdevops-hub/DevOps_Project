@@ -1,0 +1,241 @@
+
+<mat-tab-group>
+    <mat-tab label="Student"> 
+
+      <div class="container">
+        <button mat-raised-button color="primary" style="float:right;" (click)="openDialog()">Add Student</button>
+        
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
+  
+              <ng-container matColumnDef="id">
+                
+                <th mat-header-cell *matHeaderCellDef style="color:Tomato;"> Id </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+              </ng-container>
+            
+              <!-- Weight Column -->
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef style="color:Tomato;"> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+              </ng-container>
+            
+              <!-- Symbol Column -->
+              <ng-container matColumnDef="age">
+                <th mat-header-cell *matHeaderCellDef style="color:Tomato;">Age </th>
+                <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+              </ng-container>
+  
+               <!-- Symbol Column -->
+              <ng-container matColumnDef="address">
+                <th mat-header-cell *matHeaderCellDef style="color:Tomato;"> Address </th>
+                <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef style="text-align: center ;color:Tomato;"> Action</th>
+                <td mat-cell *matCellDef="let element" style="text-align: center;">
+                  <button matTooltip="Edit" mat-icon-button color="primary" (click)="openEditDialog(element)">
+                    <mat-icon>edit</mat-icon>
+                  </button>
+                  <button matTooltip="Delete" mat-icon-button color="warn">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </td>
+              </ng-container>
+
+              
+
+              <!-- <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Action</th>
+                <td mat-cell *matCellDef="let element" style="text-align: center;">
+                  <button matTooltip="Delete" mat-icon-button color="warn">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </td>
+              </ng-container> -->
+            
+              <tr mat-header-row *matHeaderRowDef="displayedColumns; " ></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+              
+            </table>    
+          </div>     
+</mat-tab>
+    
+    <mat-tab label="Employee">
+      <h2 style="font-size: 30px;text-align: center;">Angular Assignment(Day- 1)</h2>
+      <h2>Two-way Binding Example</h2>    
+         <input [(ngModel)]="fullName" /> <br/><br/>    
+      <p> {{fullName}} </p>  
+      <h2 style="font-size: 30px;text-align: center;">Angular Assignment(Day- 2)</h2>
+      <h1>1.	Print 1 to 10 using For loop in html.</h1>
+      <td *ngFor="let key of [].constructor(10);let i=index;">
+      {{i+1}}
+      &nbsp;
+      </td>
+      
+      <h1>Create buttons dynamically</h1>
+      <h1>1)At first a button is created.Using <button (click)="add()">+</button> symbol button, create button dynamically.</h1>
+      <h1>2) Using <button (click)="minus()" class="addbtn">	&#8722;</button>  symbol button, delete button dynamically.</h1>
+      <th *ngFor="let key of [].constructor(numbers);let i=index;" ><button >{{i+1}}</button>&nbsp;</th>    
+    </mat-tab>
+    <mat-tab label="Login"> 
+        <!-- <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Address</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table> -->
+
+          <!-- <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <mat-label>Enter the Message</mat-label>
+              <input matInput #message maxlength="256" >
+              <mat-hint align="start"><strong>Don't disclose personal info</strong> </mat-hint>
+              <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+            </mat-form-field>
+          </form> -->
+          <div class="card m-3">
+
+            <div class="card-body">
+                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                    <div class="form-row">
+                        <!-- <div class="form-group col">
+                            <label>Title</label>
+                            <select formControlName="title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['title'].errors }">
+                                <option value=""></option>
+                                <option value="Mr">Mr</option>
+                                <option value="Mrs">Mrs</option>
+                                <option value="Miss">Miss</option>
+                                <option value="Ms">Ms</option>
+                            </select>
+                            <div *ngIf="submitted && f['title'].errors" class="invalid-feedback">
+                                <div *ngIf="f['title'].errors['required']">Title is required</div>
+                            </div>
+                        </div> -->
+                        <!-- <div class="form-group col-5">
+                            <label>First Name</label>
+                            <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors }" />
+                            <div *ngIf="submitted && f['firstName'].errors" class="invalid-feedback">
+                                <div *ngIf="f['firstName'].errors['required']">First Name is required</div>
+                            </div>
+                        </div> -->
+                        <!-- <div class="form-group col-5">
+                            <label>Last Name</label>
+                            <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['lastName'].errors }" />
+                            <div *ngIf="submitted && f['lastName'].errors" class="invalid-feedback">
+                                <div *ngIf="f['lastName'].errors['required']">Last Name is required</div>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
+                        <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                            <div *ngIf="f['email'].errors['required']">Email is required</div>
+                            <div *ngIf="f['email'].errors['email']">Email must be a valid email address</div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label>Password</label>
+                            <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" />
+                            <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                                <div *ngIf="f['password'].errors['required']">Password is required</div>
+                                <div *ngIf="f['password'].errors['minlength']">Password must be at least 6 characters</div>
+                            </div>
+                        </div>
+                        <div class="form-group col">
+                            <label>Confirm Password</label>
+                            <input type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['confirmPassword'].errors }" />
+                            <div *ngIf="submitted && f['confirmPassword'].errors" class="invalid-feedback">
+                                <div *ngIf="f['confirmPassword'].errors['required']">Confirm Password is required</div>
+                                <div *ngIf="f['confirmPassword'].errors['mustMatch']">Passwords must match</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="form-group form-check">
+                        <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && f['acceptTerms'].errors }" />
+                        <label for="acceptTerms" class="form-check-label">Accept Terms & Conditions</label>
+                        <div *ngIf="submitted && f['acceptTerms'].errors" class="invalid-feedback">Accept Ts & Cs is required</div>
+                    </div> -->
+                    <div class="container-fluid py-3">
+
+
+                      <form #form="ngForm">
+                        <div class="row mt-3">
+                          <div class="col-sm-12 mb-2">
+                            <re-captcha id="recaptcha" name="recaptcha" #recaptcha="ngModel" [(ngModel)]="token" required [class.is-invalid]="recaptcha.invalid && (recaptcha.dirty || recaptcha.touched)"></re-captcha>
+                            <div *ngIf="recaptcha.invalid && (recaptcha.dirty || recaptcha.touched)" class="invalid-feedback">
+                              <div *ngIf="recaptcha.errors?.['required']">This field is required.</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-12 mb-2">
+                            <button type="button" class="btn btn-sm btn-primary" (click)="send(form)">Send</button>
+                          </div>
+                        </div>
+                      </form>
+                      </div>
+                    <div class="text-center">
+                        <button class="btn btn-primary mr-1">Login</button>
+                        <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+                    </div>
+                    <!-- <div class="row mt-3">
+                      <div class="col-sm-12 mb-2">
+                        <re-captcha id="recaptcha" name="recaptcha" #recaptcha="ngModel" [(ngModel)]="token" required [class.is-invalid]="recaptcha.invalid && (recaptcha.dirty || recaptcha.touched)"></re-captcha>
+                        <div *ngIf="recaptcha.invalid && (recaptcha.dirty || recaptcha.touched)" class="invalid-feedback">
+                          <div *ngIf="recaptcha.errors?.['required']">This field is required.</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-12 mb-2">
+                        <button type="button" class="btn btn-sm btn-primary" >Send</button>
+                      </div>
+                    </div> -->
+
+                </form>
+                <!-- <form #form="ngForm">
+                  <div class="row mt-3">
+                    <div class="col-sm-12 mb-2">
+                      <re-captcha id="recaptcha" name="recaptcha" #recaptcha="ngModel" [(ngModel)]="token" required [class.is-invalid]="recaptcha.invalid && (recaptcha.dirty || recaptcha.touched)"></re-captcha>
+                      <div *ngIf="recaptcha.invalid && (recaptcha.dirty || recaptcha.touched)" class="invalid-feedback">
+                        <div *ngIf="recaptcha.errors?.['required']">This field is required.</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12 mb-2">
+                      <button type="button" class="btn btn-sm btn-primary" (click)="send(form)">Send</button>
+                    </div>
+                  </div>
+                </form> -->
+            </div>
+        </div>
+         </mat-tab>
+  </mat-tab-group>
+
